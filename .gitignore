@@ -1,0 +1,19 @@
+# PyCharm
+.idea/
+
+# Python
+.pyc
+__pycache__/
+
+# 本地数据
+db.sqlite3
+caches/
+
+# 环境变量
+.env.local
+.env.dev
+.env.pre-prod
+.env.prod
+
+# CloudBase临时文件
+TCBSAM.yaml

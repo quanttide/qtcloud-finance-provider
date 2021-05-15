@@ -1,0 +1,24 @@
+{
+  "envId": "{{env.CLOUDBASE_ENV_ID}}",
+  "$schema": "https://framework-1258016615.tcloudbaseapp.com/schema/latest.json",
+  "version": "2.0",
+  "framework": {
+    "name": "{{ env.CLOUDBASE_APPLICATION_NAME }}",
+    "plugins": {
+      "server": {
+        "use": "@cloudbase/framework-plugin-container",
+        "inputs": {
+          "serviceName": "{{ env.CLOUDBASE_APPLICATION_NAME }}",
+          "servicePath": "{{ env.CLOUDBASE_SERVICE_PATH }}",
+          "containerPort": 8000,
+          "envVariables": {
+            "ENV": "{{env.ENV}}",
+            "CLOUD_API_SECRET_ID": "{{env.CLOUD_API_SECRET_ID}}",
+            "CLOUD_API_SECRET_KEY": "{{env.CLOUD_API_SECRET_KEY}}",
+            "DJANGO_SECRET_KEY": "{{env.DJANGO_SECRET_KEY}}"
+          }
+        }
+      }
+    }
+  }
+}
