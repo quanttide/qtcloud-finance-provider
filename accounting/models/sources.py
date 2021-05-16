@@ -62,7 +62,7 @@ class SourceRecord(models.Model):
 
 # ----- 原始账单 -----
 
-class BillAccount(models.TextChoices):
+class SourceBillAccount(models.TextChoices):
     pass
 
 
@@ -73,7 +73,7 @@ class SourceBill(models.Model):
     主要来源于银行账户的账单明细。
     """
     bill_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, verbose_name='账单ID')
-    bill_account = models.CharField(max_length=16, choices=BillAccount.choices, verbose_name='现金账户')
+    bill_account = models.CharField(max_length=16, choices=SourceBillAccount.choices, verbose_name='现金账户')
     raw_bill_id = models.CharField(max_length=64, default=None, null=True, blank=True, verbose_name='现金账户的账单ID')
     occurrence_date = models.DateField(verbose_name='发生时间')
     amount = models.DemicalField(max_digits=16, decimal_places=2, verbose_name='金额')
