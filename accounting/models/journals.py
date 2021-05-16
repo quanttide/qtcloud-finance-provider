@@ -23,7 +23,7 @@ class GeneralJournal(models.Model):
     普通日记账（不包含借贷记录）数据模型。
     """
     journal_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, verbose_name='日记账ID')
-    occurrence_datetime = models.DateTimeField(verbose_name='发生时间')
+    occurrence_date = models.DateField(verbose_name='发生时间')
     description = models.CharField(max_length=128, verbose_name='事件描述')
     is_adjustment = models.BooleanField(default=False, verbose_name='是否为调整账目')
 
@@ -38,7 +38,7 @@ class GeneralLedger(models.Model):
     普通分类账/普通日记账的借贷记录的数据模型。
     """
     ledger_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, verbose_name='分类账ID')
-    journal = models.ForeignKey(GeneralJournal, verbose_name='日记账')
+    journal = models.ForeignKey(GeneralJournal, on_delete=models.CASCADE, verbose_name='日记账')
     account = models.CharField(max_length=4, choices=Account.choices, verbose_name='会计科目')
     description = models.CharField(max_length=128, verbose_name='事件描述')
     debit_or_credit = models.CharField(verbose_name='借或贷')

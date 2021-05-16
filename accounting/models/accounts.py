@@ -2,11 +2,10 @@
 """
 会计科目数据模型。
 
-会计科目标准：
-- 暂时遵循Wild等著《Fundamental Accounting Principles》第21版的会计科目设立。
+会计科目标准：暂时遵循Wild等著《Fundamental Accounting Principles》第21版的会计科目设立。
 
-技术实现：
-- 暂时采用硬编码的方式以枚举类型实现，SaaS化时可考虑可导入模式。
+技术实现：暂时采用硬编码的方式以枚举类型实现，SaaS化时可考虑可导入模式。详见
+  - https://docs.djangoproject.com/en/3.1/howto/initial-data/
 """
 
 from django.db import models
